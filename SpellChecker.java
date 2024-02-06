@@ -3,11 +3,11 @@ public class SpellChecker {
 
 
 	public static void main(String[] args) {
-		// String word = args[0];
-		// int threshold = Integer.parseInt(args[1]);
-		// String[] dictionary = readDictionary("dictionary.txt");
-		// String correction = spellChecker(word, threshold, dictionary);
-		// System.out.println(correction);
+		String word = args[0];
+		int threshold = Integer.parseInt(args[1]);
+		String[] dictionary = readDictionary("dictionary.txt");
+		String correction = spellChecker(word, threshold, dictionary);
+		System.out.println(correction);
 		
 		// System.out.println(tail("word"));
 		// System.out.println(tail("live"));
@@ -65,8 +65,22 @@ public class SpellChecker {
 		return dictionary;
 	}
 
-	// public static String spellChecker(String word, int threshold, String[] dictionary) {
-	// 	// Your code goes here
-	// }
+	public static String spellChecker(String word, int threshold, String[] dictionary) { 
+		String ans = "";
+		for (int i = 0; i < dictionary.length; i++) {
+			int num = levenshtein(word, dictionary[i]); 
+			if (num > threshold) {
+
+			} else {
+				if (levenshtein(word, dictionary[i]) <= levenshtein(word, ans)) {
+					ans = dictionary[i]; 
+				}
+			}
+		}
+		if (ans.isEmpty()) {
+			return word; 
+		}
+		return ans; 
+	}
 
 }
