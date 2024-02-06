@@ -47,6 +47,11 @@
             "request": "launch",
             "mainClass": "SpellChecker",
             "projectName": "hw07-michalbarak21_17e40e0"
+            "args": [
+                "hallo", 
+                1, 
+                
+            ]
         },
         {
             "type": "java",
